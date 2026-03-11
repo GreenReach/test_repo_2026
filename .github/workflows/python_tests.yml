@@ -20,3 +20,25 @@ jobs:
 
       - name: Run tests
         run: pytest
+
+
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pytest flake8
+
+      - name: Lint code
+        run: flake8 .
+
+      - name: Run tests
+        run: pytest
