@@ -1,4 +1,4 @@
-name: Python Quality CI
+name: Python CI
 
 on: [push]
 
