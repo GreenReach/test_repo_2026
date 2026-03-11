@@ -1,8 +1,6 @@
 name: Python Quality CI
 
-on:
-  pull_request:
-  push:
+on: [push]
 
 jobs:
   lint-and-test:
