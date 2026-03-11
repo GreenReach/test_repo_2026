@@ -1,0 +1,25 @@
+name: Python Quality CI
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - run: |
+          pip install pytest flake8
+
+      - name: Lint code
+        run: flake8 .
+
+      - name: Run tests
+        run: pytest
